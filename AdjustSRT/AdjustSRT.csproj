@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\CommonNetTools\CommonNetTools\CommonNetTools.csproj">
@@ -58,6 +59,12 @@
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>rd /s /q $(SolutionDir)deploy
+md $(SolutionDir)deploy
+$(SolutionDir)packages\ILMerge.2.14.1208\tools\ILMerge /v4 /wildcards /out:$(SolutionDir)deploy\AdjustSRT.exe $(TargetFileName) *.dll
+7z a $(SolutionDir)deploy\AdjustSRT.zip $(SolutionDir)\deploy\AdjustSRT.exe $(SolutionDir)\*.md</PostBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
