@@ -13,7 +13,7 @@ precision.
 Options
 -------
 
-`AdjustSRT -i _infile_ --add _time_ --sub _time_ --scale _factor_ -o _outfile_`
+`AdjustSRT -i <infile> --add <time> --sub <time> --scale <factor> -o <outfile>`
 
 The `--add` and `--sub` option allows you to adjust the timing of the subtitles, either
 by specifying seconds (`--add 6.5`) or an actual timestamp (`--add 00:01:30.495`).
