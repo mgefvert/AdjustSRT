@@ -3,3 +3,4 @@ AdjustSRT/obj/
 deploy/
 packages/
 .vs/
+*.user
